@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tour suggester | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Smart suggestions</span><h1>Find your perfect tour</h1><p>Tell us your budget, days, season and interests. Every package is scored out of 100 and the best matches are shown on the map.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <div class="two-col" style="grid-template-columns:380px 1fr">
+      <form class="panel summary" id="planner-form" novalidate>
+        <h2>Your trip</h2>
+        <div class="field"><label for="budget">Budget per person (₹)</label><input id="budget" name="budget" type="number" min="500" max="200000" step="500" value="8000"><span class="err" data-error-for="budget"></span></div>
+        <div class="form-grid" style="margin-top:12px"><div class="field"><label for="days">Days</label><input id="days" name="days" type="number" min="1" max="14" value="3"><span class="err" data-error-for="days"></span></div>
+          <div class="field"><label for="travellers">Travellers</label><input id="travellers" name="travellers" type="number" min="1" max="20" value="2"><span class="err" data-error-for="travellers"></span></div>
+          <div class="field"><label for="month">Month</label><select id="month" name="month"><option value="">Any month</option></select><span class="err" data-error-for="month"></span></div>
+          <div class="field"><label for="startCity">Starting from</label><select id="startCity" name="startCity"><option value="">Anywhere</option></select><span class="err" data-error-for="startCity"></span></div></div>
+        <div class="field" style="margin-top:12px"><label>Interests (pick up to 5)</label><div class="interest-grid" id="interestChips"></div><span class="err" data-error-for="interests"></span></div>
+        <div class="actions"><button class="btn coral block" type="submit">✨ Suggest tours</button></div>
+        <p class="muted" style="font-size:12.5px;margin-top:12px" id="engineNote"></p>
+      </form>
+      <section><div id="plan-status"></div><div id="results"><div class="empty"><h3>Your suggestions will appear here</h3><p>Fill in the form and press “Suggest tours”.</p></div></div>
+        <div class="reveal in" style="margin-top:20px"><h3 style="margin-bottom:10px">Where they are</h3><div class="map-box"><div id="planMap" class="map short"></div></div></div></section>
+    </div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

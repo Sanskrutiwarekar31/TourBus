@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My bookings | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Your travel</span><h1>My bookings</h1><p>Bookings made in this browser, plus a lookup for any booking on the server.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <div class="two-col" style="grid-template-columns:1.6fr 1fr">
+      <section><div id="bookings-list"></div></section>
+      <aside class="panel"><h3>Find a booking</h3><p class="muted" style="font-size:14px">Enter the Booking ID and the mobile number used at checkout. The server validates both.</p>
+        <form id="lookup-form" novalidate>
+          <div class="field"><label for="bookingId">Booking ID</label><input id="bookingId" name="bookingId" placeholder="TB-ABC123-XY7Z9"><span class="err" data-error-for="bookingId"></span></div>
+          <div class="field" style="margin-top:12px"><label for="lphone">Mobile number</label><input id="lphone" name="phone" inputmode="numeric" maxlength="10"><span class="err" data-error-for="phone"></span></div>
+          <div class="actions"><button class="btn" type="submit">Find booking</button></div></form>
+        <div id="lookup-result" style="margin-top:14px"></div></aside>
+    </div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/bookings.js"></script>
+</body>
+</html>

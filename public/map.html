@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route map | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Explore</span><h1>Bus routes & suggested tracks</h1><p>See available sample bus legs, route directions, and transfer cities on an interactive street map.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <div class="map-layout">
+      <aside class="panel summary">
+        <h2>Plan a route</h2>
+        <form id="routeForm" novalidate>
+          <div class="field"><label for="from">From</label><input id="from" list="cityOptions" autocomplete="off" placeholder="Type a city"></div>
+          <div class="field" style="margin-top:12px"><label for="to">To</label><input id="to" list="cityOptions" autocomplete="off" placeholder="Type a city"></div>
+          <datalist id="cityOptions"></datalist>
+          <div class="actions"><button class="btn coral" type="submit">Show route</button><button class="btn ghost" type="button" id="locate">📍 Near me</button></div>
+        </form>
+        <p class="alert bad hidden" id="routeError"></p>
+        <div id="routeInfo" style="margin-top:14px"></div>
+        <div id="busTrackInfo"></div>
+        <h3 style="margin-top:18px">Map layers</h3>
+        <label class="toggle"><input type="checkbox" id="layerBus" checked> Bus network</label><br><br>
+        <label class="toggle"><input type="checkbox" id="layerTours" checked> Tour destinations</label>
+      </aside>
+      <section><div class="map-box"><div id="bigMap" class="map tall"></div></div><div id="nearby" style="margin-top:18px"></div></section>
+    </div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/routemap.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore 50+ photo-led travel experiences, search bus routes, and plan your next journey with TourBus.">
+  <title>TourBus | Bus Travel & Destination Tours</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Travel well. Travel your way.</span>
+        <h1>Real places.<br><em>Remarkable journeys.</em></h1>
+        <p>Find your next bus, explore more than 50 destination experiences, and plan a better trip with real photographs and interactive maps.</p>
+        <div class="actions" style="margin-top:0">
+          <a class="btn coral" href="#search">Find your journey →</a>
+          <a class="btn light" href="trip-planner.html">✨ Suggest me a tour</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="statTours">0</strong>sample tour packages</div>
+          <div><strong id="statRoutes">0</strong>scheduled sample routes</div>
+          <div><strong id="statCities">0</strong>searchable cities</div>
+          <div><strong>Real</strong>destination photographs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <div class="wrap search-wrap" id="search">
+      <div class="search-card">
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-tab="bus" aria-selected="true">🚌 Bus tickets</button>
+          <button class="tab" role="tab" data-tab="tour" aria-selected="false">🏝️ Tour packages</button>
+          <button class="tab" role="tab" data-tab="plan" aria-selected="false">✨ Tour suggester</button>
+        </div>
+
+        <form id="busForm" class="search-grid" novalidate data-panel="bus">
+          <div class="fieldbox"><label for="fromCity">From</label><input id="fromCity" name="source" list="cityOptions" placeholder="Type a city" autocomplete="off"></div>
+          <div class="fieldbox"><label for="toCity">To</label><input id="toCity" name="destination" list="cityOptions" placeholder="Type a city" autocomplete="off"><button class="swap" type="button" id="swapCities" aria-label="Swap cities">⇄</button></div>
+          <div class="fieldbox"><label for="travelDate">Journey date</label><input id="travelDate" name="date" type="date"></div>
+          <div class="fieldbox"><label for="travellers">Travellers</label><select id="travellers" name="passengers"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div>
+          <button class="btn coral" type="submit">Search buses →</button>
+        </form>
+
+        <form id="tourForm" class="search-grid hidden" novalidate data-panel="tour">
+          <div class="fieldbox"><label for="tourQ">Where to?</label><input id="tourQ" name="q" list="destinationOptions" placeholder="Search any destination" autocomplete="off"></div>
+          <div class="fieldbox"><label for="tourBudget">Max budget / person</label><select id="tourBudget" name="budget"><option value="">Any budget</option><option value="4000">Up to ₹4,000</option><option value="8000">Up to ₹8,000</option><option value="12000">Up to ₹12,000</option><option value="20000">Up to ₹20,000</option></select></div>
+          <div class="fieldbox"><label for="tourDays">Duration</label><select id="tourDays" name="days"><option value="">Any length</option><option value="short">1-2 days</option><option value="mid">3-4 days</option><option value="long">5+ days</option></select></div>
+          <div class="fieldbox"><label for="tourSort">Sort by</label><select id="tourSort" name="sort"><option value="rating">Top rated</option><option value="price">Lowest price</option><option value="days">Shortest trip</option></select></div>
+          <button class="btn coral" type="submit">Browse tours →</button>
+        </form>
+
+        <form id="planForm" class="search-grid planner hidden" novalidate data-panel="plan">
+          <div class="fieldbox"><label for="planBudget">Budget / person (₹)</label><input id="planBudget" name="budget" type="number" min="500" max="200000" step="500" value="8000"></div>
+          <div class="fieldbox"><label for="planDays">Days available</label><input id="planDays" name="days" type="number" min="1" max="14" value="3"></div>
+          <div class="fieldbox"><label for="planInterest">I love…</label><select id="planInterest" name="interest"><option value="">Surprise me</option></select></div>
+          <div class="fieldbox"><label for="planMonth">Travelling in</label><select id="planMonth" name="month"><option value="">Any month</option></select></div>
+          <button class="btn coral" type="submit">Suggest tours ✨</button>
+        </form>
+        <p class="form-msg" id="searchMessage" role="alert" aria-live="polite"></p>
+        <div class="quick" id="quickRoutes"><span>Popular:</span></div>
+        <datalist id="cityOptions"></datalist>
+        <datalist id="destinationOptions"></datalist>
+      </div>
+    </div>
+
+    <!-- POPULAR ROUTES -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">Trending routes</span><h2>Book a ride in <em class="accent">seconds</em></h2><p>Routes reflect recent searches on this browser. Popular routes are shown until you start searching.</p></div><a class="link" href="map.html">See every route on the map →</a></div>
+        <div class="grid g4 reveal" id="routeGrid"></div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="block tint">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">Handpicked for you</span><h2>Places that stay <em class="accent">with you</em></h2></div><a class="link" href="tour-packages.html">Explore all destinations →</a></div>
+        <div class="grid g3 reveal" id="destGrid" style="grid-template-rows:repeat(2,minmax(190px,1fr))"></div>
+      </div>
+    </section>
+
+    <!-- FEATURED TOURS -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">Ready-made memories</span><h2>Find your kind of <em class="accent">getaway</em></h2></div><a class="link" href="tour-packages.html">View all tour packages →</a></div>
+        <div class="grid g3 reveal" id="tourGrid"></div>
+      </div>
+    </section>
+
+    <!-- SUGGESTER WIDGET -->
+    <section class="block tint" id="suggester">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">Smart tour suggester</span><h2>Not sure where to go? <em class="accent">Let us pick.</em></h2><p>Choose what you love and your budget. We score every package on interests, budget, duration and season, and show the best matches instantly.</p></div></div>
+        <div class="two-col reveal" style="grid-template-columns:1fr 1.25fr">
+          <div class="panel">
+            <h3>What do you enjoy?</h3>
+            <div class="interest-grid" id="homeInterests"></div>
+            <div class="form-grid" style="margin-top:18px">
+              <div class="field"><label for="hBudget">Budget per person: <b id="hBudgetOut">₹8,000</b></label><input id="hBudget" type="range" min="2000" max="20000" step="500" value="8000" style="padding:0;border:0"></div>
+              <div class="field"><label for="hDays">Days available</label><select id="hDays"><option value="1">1 day</option><option value="2">2 days</option><option value="3" selected>3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="6">6+ days</option></select></div>
+            </div>
+            <a class="btn ghost block" style="margin-top:18px" id="homePlanLink" href="trip-planner.html">Open the full planner with map →</a>
+          </div>
+          <div id="homeSuggestions" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">Explore the map</span><h2>Every route, <em class="accent">every destination</em></h2><p>Green pins are bus cities, coral stars are tour destinations. Click any pin for details and quick booking links.</p></div><a class="btn" href="map.html">Open full route map →</a></div>
+        <div class="reveal"><div class="map-box"><div id="homeMap" class="map"></div></div></div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="block">
+      <div class="wrap">
+        <div class="sec-head reveal"><div><span class="eyebrow">The TourBus difference</span><h2>Travel should feel <em class="accent">this good</em></h2></div></div>
+        <div class="grid g4 reveal">
+          <div class="feature"><div class="ic">📷</div><h3>Explore before you go</h3><p>Browse destination photography, highlights, suggested activities and travel notes before choosing a trip.</p></div>
+          <div class="feature"><div class="ic">🗺️</div><h3>Interactive maps</h3><p>Explore routes and nearby destinations on an OpenStreetMap map, with practical links to local places.</p></div>
+          <div class="feature"><div class="ic">✨</div><h3>Personal trip ideas</h3><p>Choose your budget, available days and interests to get a ranked shortlist of tours.</p></div>
+          <div class="feature"><div class="ic">🎟️</div><h3>Bookings in one place</h3><p>Look up your bus booking, review the trip details and manage eligible cancellations.</p></div>
+        </div>
+        <div class="grid g3 reveal" style="margin-top:22px">
+          <div class="quote"><p>"Booked Pune to Goa in two minutes. The seat map made choosing so easy."</p><span>Aarav · Pune</span></div>
+          <div class="quote"><p>"The suggester picked Hampi for our budget and dates - it was perfect."</p><span>Meera · Bengaluru</span></div>
+          <div class="quote"><p>"Loved the route map. I could see exactly where the bus was heading."</p><span>Karan · Mumbai</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

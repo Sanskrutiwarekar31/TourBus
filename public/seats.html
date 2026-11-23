@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose seats | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Booking · Step 2 of 4</span><h1>Choose your seats</h1><p>Pick seats and add passenger details. Availability comes from the Express server.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <div class="stepper"><span class="step done">1. Search</span><span class="step active">2. Seats & passengers</span><span class="step ">3. Checkout</span><span class="step ">4. Confirmation</span></div>
+    <div id="page-message" class="alert bad hidden" role="alert"></div>
+    <div class="two-col">
+      <section class="panel">
+        <h2 id="bus-name">Bus details</h2><p class="muted" id="bus-info">Loading…</p>
+        <div class="legend"><span><i></i>Available</span><span><i class="sel"></i>Selected</span><span><i class="bk"></i>Booked</span></div>
+        <div class="bus-shell"><div class="driver" aria-hidden="true">🧑‍✈️</div><div id="seat-layout" class="seat-grid" aria-label="Seat selection"></div></div>
+        <h2>Passenger details</h2><form id="passenger-form" novalidate></form>
+        <div class="actions"><button id="continue-checkout" type="button" class="btn coral" disabled>Continue to checkout →</button><a href="buses.html" class="btn ghost">Back to search</a></div>
+      </section>
+      <aside class="panel summary"><h3>Fare summary</h3>
+        <div class="row"><span>Journey</span><strong id="sum-route">-</strong></div>
+        <div class="row"><span>Date</span><strong id="sum-date">-</strong></div>
+        <div class="row"><span>Selected seats</span><strong id="selected-seats">None</strong></div>
+        <div class="row total"><span>Seat total</span><strong id="seat-total">₹0</strong></div>
+        <p class="muted" style="font-size:13px" id="avail-note"></p></aside>
+    </div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/seats.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search buses | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Find your next journey</span><h1>Search bus tickets</h1><p>Pick a route and date. Every field is validated, and results can be sorted and filtered.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <section class="panel">
+      <form id="search-form" novalidate>
+        <div class="form-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="field"><label for="source">From</label><input id="source" name="source" list="cityOptions" autocomplete="off" placeholder="Type a city"><span class="err" data-error-for="source"></span></div>
+          <div class="field"><label for="destination">To</label><input id="destination" name="destination" list="cityOptions" autocomplete="off" placeholder="Type a city"><span class="err" data-error-for="destination"></span></div>
+          <div class="field"><label for="date">Journey date</label><input id="date" name="date" type="date"><span class="err" data-error-for="date"></span></div>
+          <div class="field"><label for="passengers">Passengers</label><select id="passengers" name="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><span class="err" data-error-for="passengers"></span></div>
+        </div>
+        <datalist id="cityOptions"></datalist>
+        <div class="actions"><button class="btn coral" type="submit">Search buses →</button><button class="btn ghost" type="button" id="swap-cities">⇄ Swap cities</button><a class="link" id="mapLink" href="map.html">View route on map →</a></div>
+      </form>
+    </section>
+    <div class="toolbar hidden" id="toolbar"><strong id="results-message"></strong><span style="flex:1"></span>
+      <select id="sortBy" aria-label="Sort"><option value="dep">Earliest departure</option><option value="price">Lowest fare</option><option value="rating">Top rated</option></select>
+      <select id="typeFilter" aria-label="Bus type"><option value="">All bus types</option><option value="Sleeper">Sleeper</option><option value="Seater">Seater</option><option value="AC">AC only</option></select></div>
+    <div id="results-note" class="alert info hidden"></div>
+    <div id="bus-results" style="margin-top:14px"></div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/buses.js"></script>
+</body>
+</html>

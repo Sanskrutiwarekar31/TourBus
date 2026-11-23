@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tour packages | TourBus</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-head"><div class="wrap"><span class="eyebrow">Go beyond the journey</span><h1>Tour packages</h1><p>Filter by interest, budget and duration. Every package has a day-by-day plan and a map.</p></div></header>
+  <main class="page"><div class="wrap pull-up">
+    <div class="filter-bar">
+      <input type="search" id="q" placeholder="Search destination or name…" aria-label="Search tours">
+      <select id="budget" aria-label="Budget"><option value="">Any budget</option><option value="4000">Up to ₹4,000</option><option value="8000">Up to ₹8,000</option><option value="12000">Up to ₹12,000</option><option value="20000">Up to ₹20,000</option></select>
+      <select id="days" aria-label="Duration"><option value="">Any length</option><option value="short">1-2 days</option><option value="mid">3-4 days</option><option value="long">5+ days</option></select>
+      <select id="sort" aria-label="Sort"><option value="rating">Top rated</option><option value="price">Lowest price</option><option value="days">Shortest trip</option></select>
+      <button class="btn ghost sm" id="reset" type="button">Reset</button>
+    </div>
+    <div class="interest-grid" id="interestChips" style="margin:16px 0"></div>
+    <p class="muted" id="count" role="status"></p>
+    <div class="grid g3" id="tour-list"></div>
+    <div class="cta-band" style="margin-top:50px"><div><span class="eyebrow">Can't decide?</span><h2>Let the suggester choose</h2><p>Tell us budget, days and interests - get a ranked shortlist with a map.</p><a class="btn coral" href="trip-planner.html">Open the Tour suggester →</a></div><div></div></div>
+  </div></main>
+  <div id="site-footer"></div>
+  <script src="js/catalog.js"></script>
+  <script src="js/recommender.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tours.js"></script>
+</body>
+</html>

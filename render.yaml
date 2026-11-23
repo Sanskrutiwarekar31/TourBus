@@ -1,0 +1,12 @@
+# Render Blueprint - deploy with: New + > Blueprint > pick this repository
+services:
+  - type: web
+    name: tourbus
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
